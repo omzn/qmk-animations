@@ -64,7 +64,7 @@ static void oled_render_anim_frame(const char **fast_frames, const char **slow_f
 
       if(col < frame_start_offset) {
         continue;
-      } else if (col < frame_offset || col > frame_offset + ANIM_FRAME_WIDTH) {
+      } else if (col < frame_offset || col >= frame_offset + ANIM_FRAME_WIDTH) {
         oled_write_raw_byte((ANIM_INVERT ? ~bg : bg), offset);
       } else if (col <= OLED_DISPLAY_WIDTH) {
         uint8_t row = offset / OLED_DISPLAY_WIDTH;
